@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Assets/Scenes/portalGame.unity
     guid: dbe2cc5d85c573145a4dcc4db9dcd163
+  - enabled: 1
+    path: Assets/_Assets/Scenes/portal_Spawn one.unity
+    guid: 5e41b808c6e27294fab8f5ab564189d9
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: d19228f4a4191e0479a3f73e91755326, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: c9edcaacf75cff844bd69eac11f636c1, type: 2}
