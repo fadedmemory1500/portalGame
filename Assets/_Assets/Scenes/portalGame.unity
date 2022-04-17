@@ -513,9 +513,10 @@ GameObject:
   - component: {fileID: 193882613}
   - component: {fileID: 193882612}
   - component: {fileID: 193882611}
+  - component: {fileID: 193882615}
   m_Layer: 7
   m_Name: InsidePortal
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -597,6 +598,18 @@ Transform:
   m_Father: {fileID: 90398243}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &193882615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193882610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f58c196b0a92d429f6606269731782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &195773879
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,9 +622,10 @@ GameObject:
   - component: {fileID: 195773882}
   - component: {fileID: 195773881}
   - component: {fileID: 195773880}
+  - component: {fileID: 195773884}
   m_Layer: 7
   m_Name: InsidePortal
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -693,6 +707,18 @@ Transform:
   m_Father: {fileID: 90398243}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &195773884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195773879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f58c196b0a92d429f6606269731782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &196935853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,7 +1218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426781673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.94, y: 0, z: 0}
+  m_LocalPosition: {x: -0.94, y: 0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 777785560}
@@ -1244,7 +1270,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 72a6faa1bf8476a4fbbf832542f0a884, type: 2}
+  - {fileID: 2100000, guid: 00370dabf71998842bdbd180292e21ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2103,9 +2129,10 @@ GameObject:
   - component: {fileID: 1702089217}
   - component: {fileID: 1702089216}
   - component: {fileID: 1702089215}
+  - component: {fileID: 1702089219}
   m_Layer: 7
   m_Name: InsidePortal
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2187,6 +2214,18 @@ Transform:
   m_Father: {fileID: 90398243}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1702089219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702089214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f58c196b0a92d429f6606269731782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1950127473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2214,8 +2253,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950127473}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002999995, y: 3.3500001, z: -4.8200006}
-  m_LocalScale: {x: 9.836935, y: 6.760997, z: -0.29482737}
+  m_LocalPosition: {x: -0.18, y: 3.02, z: -4.8200006}
+  m_LocalScale: {x: 10.252763, y: 6.760997, z: -0.29482737}
   m_Children: []
   m_Father: {fileID: 241926312}
   m_RootOrder: 0
