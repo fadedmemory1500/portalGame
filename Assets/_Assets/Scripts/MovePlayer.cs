@@ -14,8 +14,8 @@ public class MovePlayer : MonoBehaviour
     public GameObject spawnPoint;
 
     //defines the move and rotate speed for the movement
-    float moveSpeed = 4f;
-    float turnSpeed = 5f;
+    float moveSpeed = 2f;
+    float turnSpeed = 3f;
     //[SerializeField] Quaternion currentRotation;
     public float rotationAmount;
 
@@ -87,13 +87,13 @@ public class MovePlayer : MonoBehaviour
 
         float forwardBackwardMovement = movement.y;
 
-        //give the vector2 a name call "elevation"
-        Vector2 elevation = _playerControls.Space.Elevate.ReadValue<Vector2>() * moveSpeed * Time.deltaTime;
-        transform.Translate(leftRightMovement, elevation.y, forwardBackwardMovement);
+        //give the float a name call "elevation"
+        float elevation = _playerControls.Space.Elevate.ReadValue<float>() * moveSpeed * Time.deltaTime;
+        transform.Translate(leftRightMovement, elevation, forwardBackwardMovement);
 
         //give the vector2 a name call "rotate"
         //turnSpeed and rotationAmount is defined at the beginning
-        Vector2 rotate = _playerControls.Space.Rotate.ReadValue<Vector2>() * turnSpeed * Time.deltaTime;
-        transform.Rotate(0, rotate.x * rotationAmount, 0);
+        float rotate = _playerControls.Space.Rotate.ReadValue<float>() * turnSpeed * Time.deltaTime;
+        transform.Rotate(0,rotate * rotationAmount, 0);
     }
 }
