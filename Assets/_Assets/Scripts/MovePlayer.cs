@@ -14,8 +14,8 @@ public class MovePlayer : MonoBehaviour
     public GameObject spawnPoint;
 
     //defines the move and rotate speed for the movement
-    float moveSpeed = 2f;
-    float turnSpeed = 3f;
+    float moveSpeed = .1f;
+    float turnSpeed = .5f;
     //[SerializeField] Quaternion currentRotation;
     public float rotationAmount;
 
