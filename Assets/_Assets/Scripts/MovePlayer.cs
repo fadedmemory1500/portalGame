@@ -25,6 +25,9 @@ public class MovePlayer : MonoBehaviour
     //defines the rigidbody
     Rigidbody _body;
 
+    //defines the animator
+    Animator _anim;
+
     private void Awake()
     {
         //waking the input action
@@ -32,6 +35,9 @@ public class MovePlayer : MonoBehaviour
 
         //getting the rigibody
         _body = GetComponent<Rigidbody>();
+
+        //getting the animator
+        _anim = GetComponent<Animator>();
     }
 
 
@@ -46,6 +52,11 @@ public class MovePlayer : MonoBehaviour
         //subscribing the spawn input
         _playerControls.Space.Spawn.performed += Spawn;
 
+        //subscribing the grab input
+        _playerControls.Space.Grab.performed += Grab;
+
+        //subscribing the grab input
+        _playerControls.Space.Release.performed += Release;
     }
 
     private void OnDisable()
@@ -58,6 +69,12 @@ public class MovePlayer : MonoBehaviour
 
         //unsubscribing the spawn input
         _playerControls.Space.Spawn.performed -= Spawn;
+
+        //unsubscribing the grab input
+        _playerControls.Space.Grab.performed -= Grab;
+
+        //unsubscribing the grab input
+        _playerControls.Space.Release.performed -= Release;
 
     }
     private void Spawn(InputAction.CallbackContext obj)
@@ -72,6 +89,16 @@ public class MovePlayer : MonoBehaviour
         //because onJump is a one time action, we use Impluse
         _body.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
 
+    }
+
+    private void Grab(InputAction.CallbackContext obj)
+    {
+        _anim.SetTrigger("grab");
+    }
+
+    private void Release(InputAction.CallbackContext obj)
+    {
+        _anim.SetTrigger("release");
     }
 
 

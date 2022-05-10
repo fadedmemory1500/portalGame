@@ -57,6 +57,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Grab"",
+                    ""type"": ""Button"",
+                    ""id"": ""d0ddb4f4-74b9-4375-b24f-6904e230033f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Release"",
+                    ""type"": ""Button"",
+                    ""id"": ""620ad679-bfe1-41d6-8528-d3fb4ef1e053"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -213,6 +229,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""919eb42b-8968-4997-b54e-bde1b8d32a7d"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1348e299-7b14-4543-8990-22a8b415c979"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Release"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -226,6 +264,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Space_Spawn = m_Space.FindAction("Spawn", throwIfNotFound: true);
         m_Space_Elevate = m_Space.FindAction("Elevate", throwIfNotFound: true);
         m_Space_Rotate = m_Space.FindAction("Rotate", throwIfNotFound: true);
+        m_Space_Grab = m_Space.FindAction("Grab", throwIfNotFound: true);
+        m_Space_Release = m_Space.FindAction("Release", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -280,6 +320,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Space_Spawn;
     private readonly InputAction m_Space_Elevate;
     private readonly InputAction m_Space_Rotate;
+    private readonly InputAction m_Space_Grab;
+    private readonly InputAction m_Space_Release;
     public struct SpaceActions
     {
         private @PlayerControls m_Wrapper;
@@ -289,6 +331,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Spawn => m_Wrapper.m_Space_Spawn;
         public InputAction @Elevate => m_Wrapper.m_Space_Elevate;
         public InputAction @Rotate => m_Wrapper.m_Space_Rotate;
+        public InputAction @Grab => m_Wrapper.m_Space_Grab;
+        public InputAction @Release => m_Wrapper.m_Space_Release;
         public InputActionMap Get() { return m_Wrapper.m_Space; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -313,6 +357,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Rotate.started -= m_Wrapper.m_SpaceActionsCallbackInterface.OnRotate;
                 @Rotate.performed -= m_Wrapper.m_SpaceActionsCallbackInterface.OnRotate;
                 @Rotate.canceled -= m_Wrapper.m_SpaceActionsCallbackInterface.OnRotate;
+                @Grab.started -= m_Wrapper.m_SpaceActionsCallbackInterface.OnGrab;
+                @Grab.performed -= m_Wrapper.m_SpaceActionsCallbackInterface.OnGrab;
+                @Grab.canceled -= m_Wrapper.m_SpaceActionsCallbackInterface.OnGrab;
+                @Release.started -= m_Wrapper.m_SpaceActionsCallbackInterface.OnRelease;
+                @Release.performed -= m_Wrapper.m_SpaceActionsCallbackInterface.OnRelease;
+                @Release.canceled -= m_Wrapper.m_SpaceActionsCallbackInterface.OnRelease;
             }
             m_Wrapper.m_SpaceActionsCallbackInterface = instance;
             if (instance != null)
@@ -332,6 +382,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Rotate.started += instance.OnRotate;
                 @Rotate.performed += instance.OnRotate;
                 @Rotate.canceled += instance.OnRotate;
+                @Grab.started += instance.OnGrab;
+                @Grab.performed += instance.OnGrab;
+                @Grab.canceled += instance.OnGrab;
+                @Release.started += instance.OnRelease;
+                @Release.performed += instance.OnRelease;
+                @Release.canceled += instance.OnRelease;
             }
         }
     }
@@ -343,5 +399,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSpawn(InputAction.CallbackContext context);
         void OnElevate(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+        void OnGrab(InputAction.CallbackContext context);
+        void OnRelease(InputAction.CallbackContext context);
     }
 }
