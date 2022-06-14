@@ -10,7 +10,7 @@ public class DragAndShoot : MonoBehaviour
 
     private Rigidbody rb;
 
-    private bool isShoot;
+    private bool isShoot = false;
 
     void Start()
     {
