@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/_Assets/Scenes/claw machine.unity
-    guid: cf94cb0bfa90dec4e914d6d933f2c26c
   - enabled: 1
     path: Assets/_Assets/Scenes/ramen.unity
     guid: 45e7127dee376404aaa9d55082311d59
