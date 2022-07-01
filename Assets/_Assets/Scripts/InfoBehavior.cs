@@ -6,7 +6,7 @@ public class InfoBehavior : MonoBehaviour
     const float SPEED = 6f;
     [SerializeField]
 
-    //that's what I going to scale
+    //that's what I going to scale up
     Transform SectionInfo;
 
     //what I going to interpolate. default the info panel to 0 so it's off at start
