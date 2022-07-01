@@ -10,8 +10,8 @@ public class InfoBehavior : MonoBehaviour
     Transform SectionInfo;
 
     //what I going to interpolate. default the info panel to 0 so it's off at start
-    Vector3 desiredScale = Vector3.one;
-    //Vector3 desiredScale = Vector3.zero;
+    //Vector3 desiredScale = Vector3.one;
+    Vector3 desiredScale = Vector3.zero;
 
 
     // Update is called once per frame

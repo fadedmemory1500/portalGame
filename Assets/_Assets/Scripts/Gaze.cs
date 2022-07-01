@@ -11,7 +11,7 @@ public class Gaze : MonoBehaviour
         infos = FindObjectsOfType<InfoBehavior>().ToList();
     }
 
-    void Undate()
+    void Update()
     {
         if (Physics.Raycast(transform.position,transform.forward, out RaycastHit hit)){
             GameObject go = hit.collider.gameObject;
