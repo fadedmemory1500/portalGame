@@ -341,7 +341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -78.64393, y: -59.40135}
+  m_AnchoredPosition: {x: -78.64404, y: -59.401367}
   m_SizeDelta: {x: 308.8457, y: 106.64197}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &145121898
@@ -8280,8 +8280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 816b289ef451e094f9ae174fb4cf8db0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UseCustomMaterial: 0
-  m_CustomMaterial: {fileID: 0}
+  m_UseCustomMaterial: 1
+  m_CustomMaterial: {fileID: 2100000, guid: 52d73b9111c395c49bfe2bcdbf9946dc, type: 2}
 --- !u!114 &1962950765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8386,7 +8386,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 46e1b535ddd70184da200fcc267acfb3, type: 2}
-  - {fileID: 8383418854415231511, guid: a4e7c72d03e293648b2b5360b2e5c300, type: 3}
+  - {fileID: 2100000, guid: 46e1b535ddd70184da200fcc267acfb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8800,7 +8800,7 @@ GameObject:
   - component: {fileID: 5521886165037605275}
   - component: {fileID: 178375362357453249}
   m_Layer: 0
-  m_Name: Curve
+  m_Name: XRIO logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
