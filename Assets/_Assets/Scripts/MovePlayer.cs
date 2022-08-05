@@ -16,6 +16,10 @@ public class MovePlayer : MonoBehaviour
     //defines the move and rotate speed for the movement
     float moveSpeed = .1f;
     float turnSpeed = .5f;
+    float gravityValue = -3.0f;
+
+
+
     //[SerializeField] Quaternion currentRotation;
     public float rotationAmount;
 
@@ -35,6 +39,7 @@ public class MovePlayer : MonoBehaviour
 
         //getting the rigibody
         _body = GetComponent<Rigidbody>();
+
 
         //getting the animator
         _anim = GetComponent<Animator>();
@@ -57,11 +62,14 @@ public class MovePlayer : MonoBehaviour
 
         //subscribing the grab input
         _playerControls.Space.Release.performed += Release;
+
+        //subscribing the float input
+        //_playerControls.Space.Floated.performed += Floatt;
     }
 
     private void OnDisable()
     {
-        //disabling the inpu action on disable
+        //disabling the input action on disable
         _playerControls.Disable();
 
         //unsubscribing the jump input
@@ -70,11 +78,14 @@ public class MovePlayer : MonoBehaviour
         //unsubscribing the spawn input
         _playerControls.Space.Spawn.performed -= Spawn;
 
-        //unsubscribing the grab input
+        //unsubscribing the claw grab  input
         _playerControls.Space.Grab.performed -= Grab;
 
-        //unsubscribing the grab input
+        //unsubscribing the claw release input
         _playerControls.Space.Release.performed -= Release;
+        
+        //unsubscribing the float input
+        //_playerControls.Space.Floated.performed -= Floatt;
 
     }
     private void Spawn(InputAction.CallbackContext obj)
@@ -102,11 +113,13 @@ public class MovePlayer : MonoBehaviour
     }
 
 
+
+
     // Update is called once per frame
     void Update()
     {
         //give the vector2 a name call "movement"
-        //Vector 2 is two floats value; A and D is on X axis, W and S is on Y axis;
+        //Vector 2 is two floats value; A and D is on X axis--1st float value, W and S is on Y axis--2nd float value;
         //float elevation is new y axis; 
         Vector2 movement = _playerControls.Space.Move.ReadValue<Vector2>() * moveSpeed * Time.deltaTime;
 
@@ -118,9 +131,15 @@ public class MovePlayer : MonoBehaviour
         float elevation = _playerControls.Space.Elevate.ReadValue<float>() * moveSpeed * Time.deltaTime;
         transform.Translate(leftRightMovement, elevation, forwardBackwardMovement);
 
+        //give the float a name call "antiGravity"
+        float antiGravity = _playerControls.Space.Floated.ReadValue<float>() * gravityValue * Time.deltaTime;
+        Physics.gravity = new Vector3(0, antiGravity, 0);
+
         //give the vector2 a name call "rotate"
         //turnSpeed and rotationAmount is defined at the beginning
         float rotate = _playerControls.Space.Rotate.ReadValue<float>() * turnSpeed * Time.deltaTime;
         transform.Rotate(0,rotate * rotationAmount, 0);
+
+
     }
 }

@@ -35,6 +35,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Floated"",
+                    ""type"": ""Value"",
+                    ""id"": ""4769089b-32dd-442f-98c2-67a1cd87af96"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Spawn"",
                     ""type"": ""Button"",
                     ""id"": ""40be6782-b38b-4b3b-8c42-be70bf366b56"",
@@ -251,6 +259,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Release"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""b2d25c6f-1169-4bfb-8e2f-cdb929488b62"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Floated"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""a6794d44-94d2-42c8-a70a-f3690e28dccc"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Floated"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""a266a594-3389-4043-b63d-56293ac29f9d"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Floated"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -261,6 +302,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Space = asset.FindActionMap("Space", throwIfNotFound: true);
         m_Space_Move = m_Space.FindAction("Move", throwIfNotFound: true);
         m_Space_Jump = m_Space.FindAction("Jump", throwIfNotFound: true);
+        m_Space_Floated = m_Space.FindAction("Floated", throwIfNotFound: true);
         m_Space_Spawn = m_Space.FindAction("Spawn", throwIfNotFound: true);
         m_Space_Elevate = m_Space.FindAction("Elevate", throwIfNotFound: true);
         m_Space_Rotate = m_Space.FindAction("Rotate", throwIfNotFound: true);
@@ -317,6 +359,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private ISpaceActions m_SpaceActionsCallbackInterface;
     private readonly InputAction m_Space_Move;
     private readonly InputAction m_Space_Jump;
+    private readonly InputAction m_Space_Floated;
     private readonly InputAction m_Space_Spawn;
     private readonly InputAction m_Space_Elevate;
     private readonly InputAction m_Space_Rotate;
@@ -328,6 +371,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public SpaceActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Space_Move;
         public InputAction @Jump => m_Wrapper.m_Space_Jump;
+        public InputAction @Floated => m_Wrapper.m_Space_Floated;
         public InputAction @Spawn => m_Wrapper.m_Space_Spawn;
         public InputAction @Elevate => m_Wrapper.m_Space_Elevate;
         public InputAction @Rotate => m_Wrapper.m_Space_Rotate;
@@ -348,6 +392,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_SpaceActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_SpaceActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_SpaceActionsCallbackInterface.OnJump;
+                @Floated.started -= m_Wrapper.m_SpaceActionsCallbackInterface.OnFloated;
+                @Floated.performed -= m_Wrapper.m_SpaceActionsCallbackInterface.OnFloated;
+                @Floated.canceled -= m_Wrapper.m_SpaceActionsCallbackInterface.OnFloated;
                 @Spawn.started -= m_Wrapper.m_SpaceActionsCallbackInterface.OnSpawn;
                 @Spawn.performed -= m_Wrapper.m_SpaceActionsCallbackInterface.OnSpawn;
                 @Spawn.canceled -= m_Wrapper.m_SpaceActionsCallbackInterface.OnSpawn;
@@ -373,6 +420,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Floated.started += instance.OnFloated;
+                @Floated.performed += instance.OnFloated;
+                @Floated.canceled += instance.OnFloated;
                 @Spawn.started += instance.OnSpawn;
                 @Spawn.performed += instance.OnSpawn;
                 @Spawn.canceled += instance.OnSpawn;
@@ -396,6 +446,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnFloated(InputAction.CallbackContext context);
         void OnSpawn(InputAction.CallbackContext context);
         void OnElevate(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
