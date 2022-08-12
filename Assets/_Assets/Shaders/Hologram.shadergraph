@@ -154,6 +154,9 @@
         },
         {
             "m_Id": "50ddedc4119a474a804ec3145e692d8b"
+        },
+        {
+            "m_Id": "2b16a754fc834086b78c96950d5e8a0f"
         }
     ],
     "m_StickyNoteDatas": [],
@@ -1205,6 +1208,17 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "2b16a754fc834086b78c96950d5e8a0f",
+    "m_Title": "Flicking effect",
+    "m_Position": {
+        "x": 10.0,
+        "y": 10.0
+    }
 }
 
 {
@@ -2603,7 +2617,7 @@
     "m_Type": "UnityEditor.ShaderGraph.RandomRangeNode",
     "m_ObjectId": "89f119b9d3de4a57bf5c44b71175b5f1",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "2b16a754fc834086b78c96950d5e8a0f"
     },
     "m_Name": "Random Range",
     "m_DrawState": {
@@ -3080,7 +3094,7 @@
     "m_Type": "UnityEditor.ShaderGraph.ComparisonNode",
     "m_ObjectId": "bdce004c49d94bd3afe8c1f7e36a75c8",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "2b16a754fc834086b78c96950d5e8a0f"
     },
     "m_Name": "Comparison",
     "m_DrawState": {
@@ -3144,7 +3158,7 @@
     "m_Type": "UnityEditor.ShaderGraph.BranchNode",
     "m_ObjectId": "bf8d83e0da8b4682940585209db71db6",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "2b16a754fc834086b78c96950d5e8a0f"
     },
     "m_Name": "Branch",
     "m_DrawState": {
@@ -3691,7 +3705,7 @@
     "m_Type": "UnityEditor.ShaderGraph.TimeNode",
     "m_ObjectId": "df566d7b848e45599a9b27597763d593",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "2b16a754fc834086b78c96950d5e8a0f"
     },
     "m_Name": "Time",
     "m_DrawState": {
