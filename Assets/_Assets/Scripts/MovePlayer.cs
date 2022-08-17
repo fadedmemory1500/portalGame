@@ -16,7 +16,7 @@ public class MovePlayer : MonoBehaviour
     //defines the move and rotate speed for the movement
     float moveSpeed = .1f;
     float turnSpeed = .5f;
-    float gravityValue = -3.0f;
+    public float gravityValue = -0.25f;
 
 
 
@@ -64,7 +64,7 @@ public class MovePlayer : MonoBehaviour
         _playerControls.Space.Release.performed += Release;
 
         //subscribing the float input
-        //_playerControls.Space.Floated.performed += Floatt;
+        _playerControls.Space.Floated.performed += Floated;
     }
 
     private void OnDisable()
@@ -85,7 +85,7 @@ public class MovePlayer : MonoBehaviour
         _playerControls.Space.Release.performed -= Release;
         
         //unsubscribing the float input
-        //_playerControls.Space.Floated.performed -= Floatt;
+        _playerControls.Space.Floated.performed -= Floated;
 
     }
     private void Spawn(InputAction.CallbackContext obj)
@@ -112,6 +112,11 @@ public class MovePlayer : MonoBehaviour
         _anim.SetTrigger("release");
     }
 
+    private void Floated(InputAction.CallbackContext obj)
+    {
+        float antiGravity = _playerControls.Space.Floated.ReadValue<float>() * gravityValue * Time.deltaTime;
+        Physics.gravity = new Vector3(0, antiGravity, 0);
+    }
 
 
 
@@ -132,8 +137,9 @@ public class MovePlayer : MonoBehaviour
         transform.Translate(leftRightMovement, elevation, forwardBackwardMovement);
 
         //give the float a name call "antiGravity"
-        float antiGravity = _playerControls.Space.Floated.ReadValue<float>() * gravityValue * Time.deltaTime;
-        Physics.gravity = new Vector3(0, antiGravity, 0);
+        //float antiGravity = _playerControls.Space.Floated.ReadValue<float>() * gravityValue * Time.deltaTime;
+        //Physics.gravity = new Vector3(0, antiGravity, 0);
+        
 
         //give the vector2 a name call "rotate"
         //turnSpeed and rotationAmount is defined at the beginning
