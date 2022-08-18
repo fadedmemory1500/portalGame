@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Assets/Scenes/2mato_interactive.unity
-    guid: 36569a62c08bcf340bff11a339c7ffb5
-  - enabled: 1
     path: Assets/_Assets/Scenes/image tracker.unity
     guid: e0b840619db15c64089b2b65564b2511
   m_configObjects:

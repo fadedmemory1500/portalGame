@@ -21,7 +21,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 9350729315913869594
       m_GuidHigh: 1283758590060324811
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
+    m_Size: {x: 0.15, y: 0.14546828}
+    m_SpecifySize: 1
     m_Name: 2mato
     m_Texture: {fileID: 2800000, guid: 41e0a91a76c581c4cbe7e6d1a2d3d011, type: 3}
